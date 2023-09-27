@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo com DOM</title>
+</head>
+<body>
+    <h1>Acessando Elementos HTML com DOM</h1>
+    <label id="lnome" for="inome">Seu nome: </label>
+    <input type="text" id="inome" name="nome" plahorder="Informe seu nome">
+    <br>
+    <button id="bexecutar" name="executar" onclick="document.getElementById('apresenta').innerHTML += 'Olá <strong>'+document.getElementById('inome').value+'</strong><br>'">Executar</button>
+    <br>
+    <p id="apresenta"></p>
+</body>
+</html>

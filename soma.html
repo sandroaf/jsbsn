@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Função Soma</title>
+    <script>
+        function soma() {
+            let a = parseFloat(document.getElementById("iva").value); 
+            let b = parseFloat(document.getElementById("ivb").value); 
+            let c = a + b;
+            document.getElementById("resultado").innerText = "soma é: "+c;
+        }
+    </script>
+</head>
+<body>
+    <h1>
+        Soma de Valores
+    </h1>
+    <label for="iva">Valor (a):</label>
+    <input id="iva" type="text">
+    <br>
+    <label for="ivb">Valor (b):</label>
+    <input id="ivb" type="text">
+    <br>
+    <button onclick="soma()">Somar</button>
+    <br>
+    <p id="resultado"></p>
+   
+</body>
+</html>
