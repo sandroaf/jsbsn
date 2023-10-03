@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exmeplo de Condicionais</title>
+</head>
+<body>
+    <h1>Controle de fluxo.</h1>
+    <h3>receptor = ( (condição) ? verdadeiro : falso)</h3>
+    <script>
+        let a = parseInt(window.prompt("Informe Número: "));
+        parimpar = ((a % 2) > 0?"ímpar":"par");
+        
+        /* ((a % 2) > 0?"ímpar":"par") equivale a:
+        if ((a % 2) > 0) {
+            parimpar = "ímpar";
+        } else {
+            parimpar = "par";
+        }*/
+
+        alert ("O Número "+a+" é "+parimpar);
+    </script>
+</body>
+</html>

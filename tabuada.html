@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <script language="JavaScript">
+        function tabuada() {
+            let num = parseInt(document.getElementById('inum').value);
+            let resultado = "";
+            //i++ -> i = i + 1;
+            for (i = 0; i <= 10; i++) {
+                resultado += num + " x " + i + " = " + (num * i);
+                resultado += "<br>";
+            }
+            document.getElementById('dresultado').innerHTML = resultado;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Tabuada</h1>
+    <label for="inum">Número: </label>
+    <input type="number" id="inum" value="2" step="1">
+    <br>
+    <button onclick="tabuada('inum','dresultado')">
+        Exibir
+    </button>
+    <br>
+    <div id="dresultado"></div>
+</body>
+
+</html>
