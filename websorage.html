@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste WebStorage</title>
+    <script>
+
+        function adicionarStorage() {
+            localStorage.setItem(document.getElementById("inome").value
+                                ,document.getElementById("ivalor").value);
+            document.getElementById("dStorage").innerHTML += "Dados salvos na LocalStorage";
+        }
+
+        function listarStorage() {
+            var tamStorage = localStorage.length;
+            const dStorage = document.getElementById("dStorage");
+            dStorage.innerHTML = "";
+            console.log(localStorage.length);
+            for (i = 0; i < tamStorage; i++) {
+                dStorage.innerHTML += i + " - " + localStorage.key(i) + " - " + localStorage.getItem(localStorage.key(i)) + "<br>";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <label for="inome">Nome (variável): </label>
+    <input type="text" id="inome" name="nome">
+    <br>
+    <label for="ivalor">Valor (variável): </label>
+    <input type="text" id="ivalor" name="valor">
+    <br>
+    <br>
+    <button onclick="adicionarStorage()">Adicionar</button>&nbsp;&nbsp;
+    <button onclick="listarStorage()">Mostar</button>
+    <br>
+    <div id="dStorage"></div>
+</body>
+
+</html>
