@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregamento com Ajax</title>
+    <script>
+        function loadDoc(url, destino) {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById(destino).innerHTML = this.responseText;
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+    </script>
+</head>
+
+<body onload="loadDoc('index.html','index')">
+    <div style="float: left; width: 30%;" id="index"></div>
+    <div>
+        <h2>Let AJAX change this text</h2>
+        <button type="button" onclick="loadDoc('ajax_info.html','demo')">Change Content</button>
+        <div id="demo"></div>
+    </div>
+
+</body>
+
+</html>

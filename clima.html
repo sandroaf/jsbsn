@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Clima</title>
+    <script>
+        function loadClima() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {mostraClima(this);}
+            xhttp.open("GET", "http://servicos.cptec.inpe.br/XML/cidade/7dias/4388/previsao.xml");
+            xhttp.send();
+          }
+          function mostraClima(xml) {
+            const xmlDoc = xml.responseXML;
+            console.log(xmlDoc.getElementsByTagName("nome")[0].childNodes[0].nodeValue);
+            document.getElementById("demo").innerHTML = "Cidade: "+xmlDoc.getElementsByTagName("nome")[0].childNodes[0].nodeValue;
+            document.getElementById("demo").innerHTML += "<br>UF: "+xmlDoc.getElementsByTagName("uf")[0].childNodes[0].nodeValue;
+            document.getElementById("demo").innerHTML += "<br>Atualizado: "+xmlDoc.getElementsByTagName("atualizacao")[0].childNodes[0].nodeValue;
+
+            const x = xmlDoc.getElementsByTagName("previsao");
+            let table="<table><tr><th>Dia</th><th>Tempo</th><th>Máxima</th><th>Mínima</th><th>Índice UV</th></tr>";
+            for (let i = 0; i <x.length; i++) {
+              table += "<td>" +
+              x[i].getElementsByTagName("dia")[0].childNodes[0].nodeValue +
+              "</td><td>" +
+              x[i].getElementsByTagName("tempo")[0].childNodes[0].nodeValue +
+              "</td><td>" +
+              x[i].getElementsByTagName("maxima")[0].childNodes[0].nodeValue +
+              "</td><td>" +
+              x[i].getElementsByTagName("minima")[0].childNodes[0].nodeValue +
+              "</td><td>" +
+              x[i].getElementsByTagName("iuv")[0].childNodes[0].nodeValue +
+              "</td></tr>";
+            }
+            table += "</table>";
+            document.getElementById("demo").innerHTML += "<br>"+table;
+          }
+    </script>
+</head>
+<body>
+    
+<h2>Ajax Clima - Exemplo XMLHttpRequest Object</h2>
+
+<button type="button" onclick="loadClima()">Tempo</button>
+<br><br>
+<div id="demo"></div>
+    
+</body>
+</html>
