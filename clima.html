@@ -8,6 +8,8 @@
         function loadClima() {
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {mostraClima(this);}
+
+            //http://servicos.cptec.inpe.br/XML/#req-busca-localidade 
             xhttp.open("GET", "http://servicos.cptec.inpe.br/XML/cidade/7dias/4388/previsao.xml");
             xhttp.send();
           }
