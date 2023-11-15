@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatos - Json</title>
+    <style>
+        table {
+            min-width: 30%;
+            padding: 0;
+            border: 1px solid gray;
+        }
+       td {
+            background-color: whitesmoke;
+        }
+    </style>
     <script src="funcoes_contatos.js"></script>
     <script src="dados_contatos.js"></script>
 </head>
 <body>
     <h1>Contatos</h1>
+    <label for="ipesquisar">Pesquisar: </label>
+    <input id="ipesquisar" onkeyup="listacontatos('contatos',dados_contatos,this.value)">
+    <br><br>
     <div id="contatos"></div>
 </body>
 </html>
